@@ -1,2 +1,2 @@
-# LogForStudyROS
-This is a study log about learning ROS in Ubuntu 14.04LTS, it contains method from install the Ubuntu and ROS.
+# Log For Study Linux and ROS
+This is a study log about learning LINUX and ROS in Ubuntu 16.04LTS.
