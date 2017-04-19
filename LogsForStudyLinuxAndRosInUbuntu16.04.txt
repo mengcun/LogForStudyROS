@@ -1,0 +1,174 @@
+2016/12/22 03:15
+Ubuntu版本：16.04.1
+完美安装一下软件：
+		1，强大的VIM
+		2，中文帮助手册
+		3，最新JDK--jdk1.8.0_111
+		4，最新的Esclips--eclipse-cpp-neon-2-linux-gtk-x86_64.tar
+		5，一些常用的软件，参考：http://blog.csdn.net/skykingf/article/details/45267517
+					安装Sublime Text 3 报错：SSL无法建立
+
+2016/12/26 23:33
+Ubuntu版本：16.04.1
+完美安装以下软件：
+		1.Eclipse Installer 
+		2.arm-linux-gcc-4.3.2
+		3.成功安装dnw 参考：http://blog.csdn.net/cathywiki/article/details/51298232
+
+2017/02/29 00:40
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.Eclipse IDE for C/C++ Deceloper(Neon)
+	   	2.Eclipse IDE for JavaScript and Web Developers
+		
+2017/02/29 10:40
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.完整安装ROS-Kinetic.测试成功。安装目录/opt/ros/kinetic。
+	    2.完整安装pycharm， 用于Python开发。	
+****************************************************************************************************
+****************************************ROS学习日志*************************************************
+****************************************************************************************************
+2017/03/01 10:40
+Ubuntu版本：16.04.1
+
+		1.编写例程代码，消息，话题，服务。
+				a.注意代码的工整，正确性
+				b.理解概念：工作空间、功能包、
+				c.编写src中的源代码文件，配置package.xml中的build和run的依赖项，配置CMakeList.txt中的编译环境
+				d.命名规则：
+					源代码文件名（即节点名称）  =  节点名称（ros::init(argc, argv, "源代码文件名")）
+					              该节点名称会显示在rosnode list中。
+					CMakeList.txt中添加依赖库时候 ：
+							add_executable(${PROJECT_NAME}_node src/example_node.cpp)
+											    功能包名称_节点名称（该名称作为rosrun直接调用的名称） src/源代码文件名
+	
+2017/03/06 16:30
+Ubuntu版本：16.04.1
+
+		1.编写启动文件例程。 roslaunch example example.launch.
+		2.使用 rqt_console来查看各个节点的情况
+					
+2017/03/06 16:30
+Ubuntu版本：16.04.1
+
+		1.编写动态参数例程。
+				a.在编写.cfg文件时候使用python语言，注意Python的语言格式，以及不能直接从Windows中复制数据到Linux下，编码会有问题
+				b.更改 cfg 文件权限使其可执行： chmod a+x cfg/example.cfg 
+				c.配置package.xml中的build和run的依赖项，配置CMakeList.txt中的编译环境。
+				
+				roscore
+				rosrun example dynamic_reconfigure
+				rosrun rqt_reconfigure rqt_reconfigure
+								
+2017/03/07 12:20
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.重新安装ros-kintic-rqt-*** 系列组件，使用shell脚本 sudoshell.sh。
+	    2.完整安装git， git-all。				
+		
+2017/03/09 12:20
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.解决/usr/bin/dpkg returned an error code (1)  参考 http://www.maybe520.net/blog/999/。
+			cd /var/lib/dpkg
+			sudo mv info info.bak #即备份一个info
+			sudo mkdir info #新建一个新的info目录
+			然后采用以下命令重装那些出错的软件包
+			sudo apt-get –reinstall install 软件包名
+			开始我是想在一条命令中同时安装几个软件包，结果还是出现E: Sub-process /usr/bin/dpkg returned an error code (1) 。于是把新的info删掉，一个个地来安装，每装好一个软件包，就把info删掉，再新建一个，这样就没有提示E: Sub-process /usr/bin/dpkg returned an error code (1) 了。
+			最后用原来的info.bak 替换新的info
+			sudo -rf info
+			sudo mv info.bak info
+			之后输入 sudo apt-get update 和 sudo apt-get upgrade 以及sudo apt-get autoremove 都不再有E: Sub-process /usr/bin/dpkg returned an error code (1)了。
+					
+	    2.移植随书教程第三章的ROS包，发现 在kinetic下不再有driver_base 这个功能包，在动态重配置参数功能中需要此包支持。
+			解决方案：目前只是不用这个功能。 修改CMakeList.txt 和 package.xml。
+			
+		3.成功 catkin_make 工作空间， 包含ROS_Book_Hydro-hydro-devel和example两个功能包
+		
+		
+		
+2017/03/09 16:10
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.学习使用 GDB 调试工具， 请参考 http://www.cnblogs.com/hankers/archive/2012/12/07/2806836.html
+		
+		
+2017/03/10 16:10
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		学习第三章例程， 读书第四章到第六章。
+			
+2017/03/14 17:10
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.sudo apt-get install ros-kinetic-map-server
+		2.sudo apt-get install ros-kinetic-fake-localization
+		Test with CHP7 and it works well.
+		
+		
+2017/03/14 17:10
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control   :用于3D建模的环境
+		2.sudo apt-get install ros-kinetic-fake-localization		使用键盘来移动地图中的机器人
+		运行时发生 coredump 错误退出。原因不明
+
+
+2017/04/10 15:35
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.加深了对于板子的硬件连接，固件更新方法。
+
+2017/04/13 20:35
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.TQ210的S5PV210为ARMv7的架构Cortex-A8，最大支持32bit指令集和数据读。
+		2.ubuntu15.05/ubuntu 支持32bit的ARM架构，从ubuntu16.04版本开始，只支持ARMv8架构的Cortex-A57等。
+		3.ROS jada是可以在ARM处理器下，Ubuntu15.04下工作的ROS。
+		
+2017/04/15 10:00
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.设计并编写bootloader，对裸机开发的概念有了新的认识，没有深入。
+
+2017/04/17 22:35
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.编写万能Makefile文件， 可以用于配置C/C++下的工程管理
+
+
+2017/04/18 23:35
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.完成LINUX的文件编程学习：创建/读取/写入/单个/多个字符
+		2.从一个文件到另外一个文件的拷贝。
+		3.函数中返回数组的方法：必须使用static来修饰数组使其成为全局变量
+		4.函数中引用数组的方法：保证形参与实参一致。传的是地址。
+		5.因为学习的事情吵架一下。
+
+2017/04/19 23:00
+Ubuntu版本：16.04.1
+准备安装：
+完美安装以下软件：
+		1.学习进程控制编程：创建进程：fork 与 vfork区别；获取ID：getpid；一个函数族：execl execlp， execv， system用来调用fork产生子进程， 有子进程调用命令
+				    进程等待：wait
+		2.进程调度算法
+		3.进程间通信：
+				1.有名/无名管道：pipe的创建必须在fork创建子进程之前，保证子进程拷贝了pipe_fd[2];
+						 关闭子进程的写文件描述符并休眠以等待父进程完成写操作（父进程的读文件描述符被关闭）
+		3.上传到GitHub做基准。
